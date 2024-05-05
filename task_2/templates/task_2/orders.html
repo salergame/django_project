@@ -1,11 +1,24 @@
 {% extends "base.html" %}
 
-
 {% block content %}
-<h1>Order List</h1>
+<h1>Список заказов</h1>
+
+<form action="" method="GET">
+    <button type="submit" name="period" value="week">За последнюю неделю</button>
+    <button type="submit" name="period" value="month">За последний месяц</button>
+    <button type="submit" name="period" value="year">За последний год</button>
+</form>
+
 <ul>
     {% for order in orders %}
-        <li>Order {{ order.id }} by {{ order.client.name }} - Total Amount: {{ order.total_amount }} - Order Date: {{ order.order_date }}</li>
+        <li>
+            Заказ {{ order.id }} Клиента: {{ order.client.name }} - Дата заказа: {{ order.order_date }}
+            <ul>
+                {% for product in order.products.all %}
+                    <li>{{ product.name }} - Цена: {{ product.price }}</li>
+                {% endfor %}
+            </ul>
+        </li>
     {% endfor %}
 </ul>
-{% endblock  %}
+{% endblock %}

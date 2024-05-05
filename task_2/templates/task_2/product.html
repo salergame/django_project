@@ -5,7 +5,12 @@
 <ul>
     {% for product in products %}
     <li>{{ product.name }} - {{ product.description }} - {{ product.price }} - {{ product.quantity }}</li>
-        {% endfor %}
+    <form method="post" action="{% url "task_2:add" %}">
+        {% csrf_token %}
+        <input type="hidden" name="product_id" value="{{ product.id }}">
+        <button type="submit" class="btn btn-dark add-to-cart">Положить в корзину</button>
+    </form>
+    {% endfor %}
 </ul>
 {% endblock  %}
 

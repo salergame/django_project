@@ -25,6 +25,6 @@ class Order(models.Model):
     products = models.ManyToManyField(Product,verbose_name="Продукт")
     total_amount = models.DecimalField(max_digits=10, decimal_places=2,verbose_name="Общая сумма")
     order_date = models.DateField(auto_now_add=True,verbose_name="Дата заказа")
-
+    
     def __str__(self):
         return f"Заказ {self.id} клиент: {self.client.name}"

@@ -2,4 +2,9 @@
 
 {% block content %}
     <h1 class="mt-5 pt-5"><strong>{{ content }}</strong></h1>
+    <button onclick="window.location.href='{% url "task_2:product_list" %}'" class="btn btn-dark add-to-cart">Посмотреть товары</button>
+    <button onclick="window.location.href='{% url "task_2:client_list" %}'" class="btn btn-dark add-to-cart">Посмотреть пользователей</button>
+    <button onclick="window.location.href='{% url "task_2:order_list" %}'" class="btn btn-dark add-to-cart">Посмотреть корзину</button>
+
+
 {% endblock %}
